@@ -2,12 +2,14 @@ import React from 'react'
 import { View, Text, ImageBackground, Pressable } from 'react-native'
 import styles from './styles';
 import { FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native'
 
 const Home = () => {
+  const navigation = useNavigation();
   return (
     <View>
       {/* Search Bar */}
-      <Pressable style={styles.searchButton} onPress={() => console.warn( 'search clicked' )}>
+      <Pressable style={styles.searchButton} onPress={() => navigation.navigate('Destination Search')}>
         <FontAwesome name="search" size={24} color="#f15454" />
         <Text style={styles.searchText}> Choose A Destination</Text>
       </Pressable>

@@ -35,7 +35,21 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: 18,
-  }, 
+  },
+  nextBtn: {
+    marginBottom: 75,
+    backgroundColor: '#f15454',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    marginHorizontal: 20,
+    borderRadius: 25
+  },
+  nextText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20
+  }
 });
 
 export default styles
