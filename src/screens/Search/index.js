@@ -1,28 +1,35 @@
 import React, { useState } from 'react'
 import { TextInput, View, FlatList, Text, Pressable } from 'react-native'
 import styles from './styles'
-import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import ResultsRow from './ResultsRow';
 
-import searchData from '../../../assets/data/search'
 
 const Search = () => {
-  const [input, setInput] = useState('');
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       {/* Input */}
-      <TextInput style={styles.input} placeholder="Search for a destination" value={input} onChangeText={setInput} />
-      {/* List of destinations */}
-      <FlatList data={searchData} renderItem={({item}) => (
-        <Pressable style={styles.row} onPress={() => navigation.navigate('Guests')} >
-          <View style={styles.iconContainer}>
-            <Ionicons name="location-sharp" size={28} />
-          </View>
-          <Text style={styles.location}>{item.description}</Text>
-        </Pressable>
-      )}/>
+        <GooglePlacesAutocomplete
+          placeholder='Search'
+          onPress={(data, details = null) => {
+            // 'details' is provided when fetchDetails = true
+            navigation.navigate('Guests')
+          }}
+          query={{
+            key: 'AIzaSyDXd_EwiXxVOsKjVqohKOHEeJEo5O3uzaM',
+            language: 'en',
+            types: '(cities)'
+          }}
+          styles={{
+            textInput: styles.input
+          }}
+          renderRow={(item) => <ResultsRow item={item} />}
+          suppressDefaultStyles
+          fetchDetails
+        />
     </View>
   )
 }

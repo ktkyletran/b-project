@@ -2,11 +2,16 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20,
+    padding: 20,
+    height: "100%",
+    backgroundColor: 'white',
   },
   input: {
     fontSize: 18,
-    marginBottom: 20
+    marginBottom: 20,
+    paddingBottom: 20,
+    borderBottomWidth: 1,
+    borderColor: 'lightgrey',
   },
   row: {
     flexDirection: 'row',
