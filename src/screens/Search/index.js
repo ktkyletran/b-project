@@ -4,6 +4,7 @@ import styles from './styles'
 import { useNavigation } from '@react-navigation/native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import ResultsRow from './ResultsRow';
+import { GOOGLE_PLACES_API } from '@env';
 
 
 const Search = () => {
@@ -19,7 +20,7 @@ const Search = () => {
             navigation.navigate('Guests')
           }}
           query={{
-            key: '',
+            key: GOOGLE_PLACES_API,
             language: 'en',
             types: '(cities)'
           }}
