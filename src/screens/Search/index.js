@@ -19,7 +19,7 @@ const Search = () => {
             navigation.navigate('Guests')
           }}
           query={{
-            key: 'AIzaSyDXd_EwiXxVOsKjVqohKOHEeJEo5O3uzaM',
+            key: '',
             language: 'en',
             types: '(cities)'
           }}
