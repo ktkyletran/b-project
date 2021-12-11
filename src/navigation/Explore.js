@@ -4,6 +4,7 @@ import Home from '../screens/Home'
 import SearchResults from '../screens/SearchResults'
 import SearchResultsTab from './SearchResultsTab'
 import Map from '../screens/Map'
+import Details from '../screens/Details'
 
 const Stack = createStackNavigator();
 
