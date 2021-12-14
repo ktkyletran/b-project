@@ -15,19 +15,19 @@ const HomeTab = () => {
         <Ionicons name="md-search" size={24} color={color} />
       ) }} />
 
-      <Tab.Screen name={'Saved'} component={Home} options={{ tabBarIcon: ({color}) => (
+      <Tab.Screen name={'Saved'} component={Home} options={{ headerShown: false, tabBarIcon: ({color}) => (
         <Ionicons name="md-heart-circle-outline" size={24} color={color} />
       ) }} />
 
-      <Tab.Screen name={'Airbnb'} component={Home} options={{ tabBarIcon: ({color}) => (
+      <Tab.Screen name={'Airbnb'} component={Home} options={{ headerShown: false, tabBarIcon: ({color}) => (
         <FontAwesome5 name="airbnb" size={24} color={color} />
       ) }} />
 
-      <Tab.Screen name={'Messages'} component={Home} options={{ tabBarIcon: ({color}) => (
+      <Tab.Screen name={'Messages'} component={Home} options={{ headerShown: false, tabBarIcon: ({color}) => (
         <AntDesign name="message1" size={24} color={color} />
       ) }} />
 
-      <Tab.Screen name={'User'} component={Home} options={{ tabBarIcon: ({color}) => (
+      <Tab.Screen name={'User'} component={Home} options={{ headerShown: false, tabBarIcon: ({color}) => (
         <AntDesign name="user" size={24} color={color} />
       ) }} />
     </Tab.Navigator>

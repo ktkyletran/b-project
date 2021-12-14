@@ -4,9 +4,10 @@ import React from 'react';
 import Router from './src/navigation/Router';
 import Amplify from 'aws-amplify'
 import config from './src/aws-exports'
+import { withAuthenticator } from 'aws-amplify-react-native'
 Amplify.configure(config)
 
-export default function App() {
+const App = () => {
   return (
     <>
       <StatusBar style="auto" />
@@ -14,3 +15,5 @@ export default function App() {
     </>
   );
 }
+
+export default withAuthenticator(App);
