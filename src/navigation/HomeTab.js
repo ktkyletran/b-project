@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import Explore from './Explore';
+import Profile from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +28,7 @@ const HomeTab = () => {
         <AntDesign name="message1" size={24} color={color} />
       ) }} />
 
-      <Tab.Screen name={'User'} component={Home} options={{ headerShown: false, tabBarIcon: ({color}) => (
+      <Tab.Screen name={'Profile'} component={Profile} options={{ headerShown: false, tabBarIcon: ({color}) => (
         <AntDesign name="user" size={24} color={color} />
       ) }} />
     </Tab.Navigator>
