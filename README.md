@@ -1,2 +1,2 @@
 # b-project
-React Native App
+Expo App
