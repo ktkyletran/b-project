@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "bproject",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\Kyle\\Documents\\code\\b-project\\amplify\\backend\\api\\bproject\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2022-12-15T01:00:28.830Z",
+      "keyDescription": ""
+    }
+  }
+}
