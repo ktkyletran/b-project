@@ -3,13 +3,10 @@ import { FlatList, useWindowDimensions, View } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import CustomMarker from '../../components/CustomMarker';
 import PostCarouselItem from '../../components/PostCarouselItem';
-import { API, graphqlOperation } from 'aws-amplify'
-import { listPosts } from '../../graphql/queries'
 
 const Map = (props) => {
-  const { guests } = props;
+  const { posts, locationLat, locationLng } = props;
   const [selected, setSelected] = useState(null);
-  const [posts, setPosts] = useState([]);
 
   const flatList = useRef();
   const mapRef = useRef();
@@ -22,26 +19,6 @@ const Map = (props) => {
       setSelected(selectedPlace.id)
     }
   });
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const postsList = await API.graphql(graphqlOperation(listPosts, {
-          filter: {
-            maxGuests: {
-              ge: guests
-            }
-          }
-        }));
-        setPosts(postsList.data.listPosts.items)
-
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    
-    fetchPosts();
-  }, []);
 
   useEffect(() => {
     if (!selected || !flatList) return;
@@ -61,12 +38,12 @@ const Map = (props) => {
   return (
     <View style={{ width: '100%', height: '100%', }}>
       <MapView
-      ref={mapRef}
+        ref={mapRef}
         provider={PROVIDER_GOOGLE}
         style={{ width: '100%', height: '100%', }}
         region={{
-          latitude: 28.3279822,
-          longitude: -16.5124847,
+          latitude: locationLat,
+          longitude: locationLng,
           latitudeDelta: 0.8,
           longitudeDelta: 0.8,
         }}

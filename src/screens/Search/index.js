@@ -12,12 +12,15 @@ const Search = () => {
 
   return (
     <View style={styles.container}>
-      {/* Input */}
         <GooglePlacesAutocomplete
           placeholder='Search'
           onPress={(data, details = null) => {
             // 'details' is provided when fetchDetails = true
-            navigation.navigate('Guests')
+            navigation.navigate('Guests', {
+              viewport: details.geometry.viewport,
+              locationLat: details.geometry.location.lat,
+              locationLng: details.geometry.location.lng,
+            })
           }}
           query={{
             key: GOOGLE_PLACES_API,
