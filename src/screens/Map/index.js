@@ -6,11 +6,14 @@ import PostCarouselItem from '../../components/PostCarouselItem';
 import { API, graphqlOperation } from 'aws-amplify'
 import { listPosts } from '../../graphql/queries'
 
-const Map = () => {
+const Map = (props) => {
+  const { guests } = props;
   const [selected, setSelected] = useState(null);
   const [posts, setPosts] = useState([]);
+
   const flatList = useRef();
   const mapRef = useRef();
+
   const width = useWindowDimensions().width;
   const viewConfig = useRef({itemVisiblePercentThreshold: 70});
   const viewChange = useRef(({viewableItems}) => {
@@ -23,7 +26,13 @@ const Map = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postsList = await API.graphql(graphqlOperation(listPosts));
+        const postsList = await API.graphql(graphqlOperation(listPosts, {
+          filter: {
+            maxGuests: {
+              ge: guests
+            }
+          }
+        }));
         setPosts(postsList.data.listPosts.items)
 
       } catch (err) {

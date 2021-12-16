@@ -61,7 +61,9 @@ const Guests = () => {
         </View>
       </View>
       <View>
-        <Pressable style={styles.nextBtn} onPress={() => navigation.navigate('SearchResults')}>
+        <Pressable style={styles.nextBtn} onPress={() => navigation.navigate('SearchResults', {
+          guests: adults + children
+        })}>
           <Text style={styles.nextText}>Search</Text>
         </Pressable>
       </View>
